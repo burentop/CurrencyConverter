@@ -10,19 +10,23 @@
 
 int main()
 {
-    constexpr double cm_per_inch = 2.54;
+    constexpr double yn_per_dollar = 0.0099;
+    constexpr double kr_per_dollar = 0.15;
+    constexpr double pd_per_dollar = 1.29;
     
-    double length = 1;
+    double amount = 1;
     
-    char unit = ' ';
+    char currency = ' ';
     
-    cout << "Please enter a length followed by a unit (c or i): ";
-    cin >> length >> unit;
+    cout << "Please enter an amount followed by a currency (y, k or p - for 'yen', 'kroner' or 'pound'): ";
+    cin >> amount >> currency;
     
-    if (unit == 'i')
-        cout << length << "in == " << cm_per_inch*length << "cm\n";
-    else if (unit == 'c')
-        cout << length << "cm == " << length/cm_per_inch << "in\n";
+    if (currency == 'y')
+        cout << amount << "yen == " << yn_per_dollar*amount << "dollars\n";
+    else if (currency == 'k')
+        cout << amount << "kroner == " << kr_per_dollar*amount << "dollars\n";
+    else if (currency == 'p')
+        cout << amount << "pound == " << pd_per_dollar*amount << "dollars\n";
     else
-        cout << "Sorry, I don't know a unit called '" << unit << "'\n";
+        cout << "Sorry, I don't know a currency called '" << currency << "'\n";
 }
